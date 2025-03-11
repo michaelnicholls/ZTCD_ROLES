@@ -25,5 +25,7 @@ association to agr_texts as _agr_texts on $projection.agr_name = _agr_texts.agr_
     else ''
     end as SAP_supplied,
     _agr_1251.auth as auth,
-    _agr_texts.text as description
+    _agr_texts.text as description,
+    concat('/sap/bc/gui/sap/its/webgui?~transaction=*PFCG%20AGR_NAME_NEU=',agr_name) as webgui
+    
 }
