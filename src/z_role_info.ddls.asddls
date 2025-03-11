@@ -21,6 +21,7 @@ association to agr_texts as _agr_texts on $projection.agr_name = _agr_texts.agr_
     else 'X'
     end as derived,
     case when left(agr_name,4) = 'SAP_' then 'X'
+    when left(agr_name,1) = '/' then 'X'
     else ''
     end as SAP_supplied,
     _agr_1251.auth as auth,
