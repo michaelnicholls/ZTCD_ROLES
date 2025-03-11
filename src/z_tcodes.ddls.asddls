@@ -40,8 +40,11 @@ association to Z_ROLE_INFO as _role_info on $projection.Auth = _role_info.auth
    
    _role_info.derived as derived,
      @UI.lineItem: [{ position: 50 , label: 'SAP Supplied'}]
-   _role_info.SAP_supplied
+   _role_info.SAP_supplied,
+     @UI.lineItem: [{ position: 60 , label: 'Description'}]
+   _role_info.description
+   
   
   
 } where objct = 'S_TCODE' and _role_info.agr_name <> ''
-group by objct,auth,von, _role_info.agr_name,_role_info.parent_agr, _role_info.derived,_role_info.SAP_supplied
+group by objct,auth,von, _role_info.agr_name,_role_info.parent_agr, _role_info.derived,_role_info.SAP_supplied,_role_info.description

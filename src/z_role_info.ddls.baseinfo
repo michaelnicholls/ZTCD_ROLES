@@ -4,7 +4,8 @@
 "FROM":
 [
 "AGR_1251",
-"AGR_DEFINE"
+"AGR_DEFINE",
+"AGR_TEXTS"
 ],
 "ASSOCIATED":
 [],
