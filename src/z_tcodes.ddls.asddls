@@ -43,6 +43,8 @@ association to Z_ROLE_INFO as _role_info on $projection.Auth = _role_info.auth
      @UI.lineItem: [{ position: 50 , label: 'SAP Supplied'}]
    _role_info.SAP_supplied,
      @UI.lineItem: [{ position: 60 , label: 'Description'}]
+      @Search.defaultSearchElement: true
+   @Search.fuzzinessThreshold: 0.8
    _role_info.description,
    @UI.hidden: true
    _role_info.webgui as webgui
