@@ -3,7 +3,7 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <DEVC>
-    <CTEXT>see roles with TCodes</CTEXT>
+    <CTEXT>Roles with Tcodes</CTEXT>
    </DEVC>
   </asx:values>
  </asx:abap>
