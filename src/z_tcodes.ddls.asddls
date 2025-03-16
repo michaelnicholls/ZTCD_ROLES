@@ -9,7 +9,7 @@
 }
 @UI.headerInfo.typeNamePlural: 'Roles'
 @Search.searchable: true
-define view entity Z_TCODES as select distinct  from ust12
+define view entity Z_TCODES as select distinct from  ust12
 association to Z_ROLE_INFO as _role_info on $projection.Auth = _role_info.auth
 
 {
@@ -52,10 +52,10 @@ association to Z_ROLE_INFO as _role_info on $projection.Auth = _role_info.auth
     @UI.lineItem: [{ position: 40 , label: 'Imparting'}]
 
     @UI.selectionField: [{position: 20}]
-  
+  //@Consumption.valueHelpDefinition: [{ entity: { name: 'Z_IMPARTING_VALUES', element: ''}, distinctValues: true}]
    _role_info.Imparting as Imparting
    
   
   
 } where objct = 'S_TCODE' and _role_info.agr_name <> ''
-group by objct,auth,von, _role_info.agr_name,_role_info.parent_agr, _role_info.Derived,_role_info.SAP_supplied,_role_info.description,_role_info.webgui,_role_info.Imparting
+//group by objct,auth,von, _role_info.agr_name,_role_info.parent_agr, _role_info.Derived,_role_info.SAP_supplied,_role_info.description,_role_info.webgui,_role_info.Imparting

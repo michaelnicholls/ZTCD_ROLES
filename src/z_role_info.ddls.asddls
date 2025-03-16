@@ -17,15 +17,15 @@ association to agr_texts as _agr_texts on $projection.agr_name = _agr_texts.agr_
 {
     agr_define.agr_name,
     agr_define.parent_agr,
-    case agr_define.parent_agr
+    cast (case agr_define.parent_agr
     when '' then ''
     else 'X'
-    end as Derived,
-    case when left(agr_define.agr_name,4) = 'SAP_' then 'X'
+    end as z_derived_flag) as Derived,
+    cast (case when left(agr_define.agr_name,4) = 'SAP_' then 'X'
     when left(agr_define.agr_name,1) = '/' then 'X'
     else ''
-    end as SAP_supplied,
-    case when imp.parent is null then '' else 'X' end as Imparting,
+    end as z_sap_flag) as SAP_supplied,
+    cast (case when imp.parent is null then '' else 'X' end as z_imparting_flag) as Imparting,
     _agr_1251.auth as auth,
     _agr_texts.text as description,
     concat(
