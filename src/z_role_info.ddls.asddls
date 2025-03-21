@@ -9,6 +9,7 @@
 }
 define view entity Z_ROLE_INFO as select from agr_define
 left outer join z_imparting_roles as imp on imp.parent = agr_define.agr_name
+left outer join Z_composite_ROLES as comp on comp.child_agr = agr_define.agr_name
 association to agr_1251 as _agr_1251 on $projection.agr_name = _agr_1251.agr_name
 association to agr_texts as _agr_texts on $projection.agr_name = _agr_texts.agr_name
     and _agr_texts.spras = $session.system_language
@@ -26,6 +27,7 @@ association to agr_texts as _agr_texts on $projection.agr_name = _agr_texts.agr_
     else ''
     end as z_sap_flag) as SAP_supplied,
     cast (case when imp.parent is null then '' else 'X' end as z_imparting_flag) as Imparting,
+    cast (case when comp.agr_name is null then '' else 'X' end as z_in_composite_flag) as in_composite,
     _agr_1251.auth as auth,
     _agr_texts.text as description,
     concat(

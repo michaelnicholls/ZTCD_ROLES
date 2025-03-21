@@ -53,7 +53,12 @@ association to Z_ROLE_INFO as _role_info on $projection.Auth = _role_info.auth
 
     @UI.selectionField: [{position: 20}]
   //@Consumption.valueHelpDefinition: [{ entity: { name: 'Z_IMPARTING_VALUES', element: ''}, distinctValues: true}]
-   _role_info.Imparting as Imparting
+   _role_info.Imparting as Imparting,
+      @UI.lineItem: [{ position: 65 , label: 'In composite'}]
+
+    @UI.selectionField: [{position: 40}]
+   _role_info.in_composite
+   
    
   
   
