@@ -27,7 +27,7 @@ association to agr_texts as _agr_texts on $projection.agr_name = _agr_texts.agr_
     else ''
     end as z_sap_flag) as SAP_supplied,
     cast (case when imp.parent is null then '' else 'X' end as z_imparting_flag) as Imparting,
-    cast (case when comp.agr_name is null then '' else 'X' end as z_in_composite_flag) as in_composite,
+    cast (case when comp.child_agr is null then '' else 'X' end as z_in_composite_flag) as in_composite,
     _agr_1251.auth as auth,
     _agr_texts.text as description,
     concat(
