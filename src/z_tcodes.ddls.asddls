@@ -10,57 +10,61 @@
 @UI.headerInfo.typeNamePlural: 'Roles'
 @Search.searchable: true
 define view entity Z_TCODES as select distinct from  ust12
-association to Z_ROLE_INFO as _role_info on $projection.Auth = _role_info.auth
+
+inner join Z_ROLE_INFO on Z_ROLE_INFO.auth= ust12.auth
+
 
 {
 @UI.hidden: true
-   key objct as Objct,
+   key ust12.objct as Objct,
    @UI.hidden: true
    
 
    
-   key auth as Auth,
+   key ust12.auth as Auth,
    @UI.lineItem: [{ position: 10 }]
  
    @UI.selectionField: [{position: 10}]
  
-   key cast(von as tcode) as tcode,
+   key cast(ust12.von as tcode) as tcode,
+  
  //  key bis as Bis ,
   @UI.lineItem: [{ position: 20 , label: 'Role (right-click to launch in new window)', type: #WITH_URL, url: 'webgui'}]
    @Search.defaultSearchElement: true
    @Search.fuzzinessThreshold: 0.8
    
-     _role_info.agr_name as role,
-   @UI.lineItem: [{ position: 30 , label: 'Parent role'}]
+   key Z_ROLE_INFO.agr_name as role,
+      @UI.lineItem: [{ position: 25 , label: 'Composite'}]
+     @UI.selectionField: [{position: 20}]
+    Z_ROLE_INFO.composite ,
+   @UI.lineItem: [{ position: 30 , label: 'Derived from'}]
  
    @Search.defaultSearchElement: true
    @Search.fuzzinessThreshold: 0.8
   
-   _role_info.parent_agr as parent,
+   Z_ROLE_INFO.parent_agr as parent,
     @UI.lineItem: [{ position: 50 , label: 'Derived'}]
      @UI.selectionField: [{position: 30}]
-   _role_info.Derived as Derived,
+   Z_ROLE_INFO.Derived as Derived,
     @UI.selectionField: [{position: 40}]
-     @UI.lineItem: [{ position: 60 , label: 'SAP Supplied'}]
-   _role_info.SAP_supplied,
+     @UI.lineItem: [{ position: 65 , label: 'SAP Supplied'}]
+   Z_ROLE_INFO.SAP_supplied,
      @UI.lineItem: [{ position: 70 , label: 'Description'}]
       @Search.defaultSearchElement: true
    @Search.fuzzinessThreshold: 0.8
-   _role_info.description,
+   Z_ROLE_INFO.description,
    @UI.hidden: true
-   _role_info.webgui as webgui,
+   Z_ROLE_INFO.webgui as webgui,
     @UI.lineItem: [{ position: 40 , label: 'Imparting'}]
-
-    @UI.selectionField: [{position: 20}]
+    @UI.selectionField: [{position: 25}]
   //@Consumption.valueHelpDefinition: [{ entity: { name: 'Z_IMPARTING_VALUES', element: ''}, distinctValues: true}]
-   _role_info.Imparting as Imparting,
-      @UI.lineItem: [{ position: 65 , label: 'In composite'}]
-
+   Z_ROLE_INFO.Imparting as Imparting,
+    @UI.lineItem: [{ position: 60 , label: 'In composite'}]
     @UI.selectionField: [{position: 40}]
-   _role_info.in_composite
+   Z_ROLE_INFO.in_composite
    
    
   
   
-} where objct = 'S_TCODE' and _role_info.agr_name <> ''
+} where ust12.objct = 'S_TCODE' and Z_ROLE_INFO.agr_name <> ''
 //group by objct,auth,von, _role_info.agr_name,_role_info.parent_agr, _role_info.Derived,_role_info.SAP_supplied,_role_info.description,_role_info.webgui,_role_info.Imparting

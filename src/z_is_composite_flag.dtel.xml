@@ -3,16 +3,16 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <DD04V>
-    <ROLLNAME>Z_SAP_FLAG</ROLLNAME>
+    <ROLLNAME>Z_IS_COMPOSITE_FLAG</ROLLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
     <DOMNAME>BOOLEAN</DOMNAME>
     <HEADLEN>55</HEADLEN>
     <SCRLEN1>10</SCRLEN1>
     <SCRLEN2>20</SCRLEN2>
     <SCRLEN3>40</SCRLEN3>
-    <DDTEXT>standard SAP role</DDTEXT>
-    <SCRTEXT_S>SAP</SCRTEXT_S>
-    <SCRTEXT_M>SAP supplied</SCRTEXT_M>
+    <DDTEXT>composite flag</DDTEXT>
+    <SCRTEXT_S>Comp</SCRTEXT_S>
+    <SCRTEXT_M>Composite role</SCRTEXT_M>
     <DTELMASTER>E</DTELMASTER>
     <REFKIND>D</REFKIND>
    </DD04V>
