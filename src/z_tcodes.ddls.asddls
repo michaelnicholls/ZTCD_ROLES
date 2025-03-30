@@ -31,17 +31,17 @@ define view entity Z_TCODES
 
       //  key bis as Bis ,
       @UI.lineItem: [ { position: 20, label: 'Role' } ]
-       @Search.defaultSearchElement: true
-       @Search.fuzzinessThreshold: 0.8
+  //     @Search.defaultSearchElement: true
+  //     @Search.fuzzinessThreshold: 0.8
 
-  key Z_ROLE_INFO.agr_name      as role,
+  key Z_ROLE_INFO.fullname     as role,
 
-      @UI.lineItem: [ { position: 40 } ]
+  //    @UI.lineItem: [ { position: 40 } ]
       @UI.selectionField: [ { position: 20 } ]
       Z_ROLE_INFO.composite,
 
-      @Search.defaultSearchElement: true
-      @Search.fuzzinessThreshold: 0.8
+ //     @Search.defaultSearchElement: true
+ //     @Search.fuzzinessThreshold: 0.8
       @UI.lineItem: [ { position: 60, label: 'Derived from' } ]
 
       Z_ROLE_INFO.parent_agr    as parent,

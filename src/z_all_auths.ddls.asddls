@@ -12,6 +12,7 @@ define view entity z_all_auths as select from agr_1251 inner join z_all_roles on
 {
     agr_1251.auth,
     z_all_roles.agr_name,
-    z_all_roles.composite
+    z_all_roles.composite,
+    z_all_roles.roletype
     
 }

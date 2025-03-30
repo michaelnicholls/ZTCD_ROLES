@@ -35,6 +35,7 @@ association to agr_texts as _agr_texts on $projection.agr_name = _agr_texts.agr_
     z_all_auths.auth,
     _agr_texts.text as description,
     cast(z_all_auths.composite as z_is_composite_flag) as composite,
+    concat(z_all_auths.agr_name, z_all_auths.roletype) as fullname,
     concat(
     concat('/sap/bc/gui/sap/its/webgui?~transaction=*PFCG%20AGR_NAME_NEU=',agr_define.agr_name),
     ';DYNP_OKCODE=ANZE') as webgui
