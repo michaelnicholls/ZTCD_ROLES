@@ -12,7 +12,7 @@
     <SCRLEN3>40</SCRLEN3>
     <DDTEXT>composite flag</DDTEXT>
     <SCRTEXT_S>Comp</SCRTEXT_S>
-    <SCRTEXT_M>Composite role</SCRTEXT_M>
+    <SCRTEXT_M>Is composite role</SCRTEXT_M>
     <DTELMASTER>E</DTELMASTER>
     <REFKIND>D</REFKIND>
    </DD04V>

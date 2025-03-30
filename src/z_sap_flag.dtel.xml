@@ -12,7 +12,7 @@
     <SCRLEN3>40</SCRLEN3>
     <DDTEXT>standard SAP role</DDTEXT>
     <SCRTEXT_S>SAP</SCRTEXT_S>
-    <SCRTEXT_M>SAP supplied</SCRTEXT_M>
+    <SCRTEXT_M>Is SAP supplied</SCRTEXT_M>
     <DTELMASTER>E</DTELMASTER>
     <REFKIND>D</REFKIND>
    </DD04V>
