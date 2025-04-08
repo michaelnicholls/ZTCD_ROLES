@@ -11,11 +11,12 @@
 @Search.searchable: true
 
 @UI.headerInfo.typeNamePlural: 'Roles'
-
+@OData.publish: true
 define view entity Z_TCODES
   as select distinct from ust12
 
     inner join            Z_ROLE_INFO on Z_ROLE_INFO.auth = ust12.auth
+    inner join tstct on tstct.tcode = ust12.von and tstct.sprsl = $session.system_language
 
 {
       @UI.hidden: true
@@ -72,7 +73,9 @@ define view entity Z_TCODES
       Z_ROLE_INFO.in_composite,
 
       @UI.lineItem: [ { position: 50, label: 'Right click to launch PFCG', type: #WITH_URL, url: 'webgui' } ]
-      'PFCG'                    as pfcg
+      'PFCG'                    as pfcg,
+      @UI.lineItem: [ { position: 15 } ]
+      tstct.ttext as tcode_description
 }
 
 where ust12.objct = 'S_TCODE' and Z_ROLE_INFO.agr_name <> ''

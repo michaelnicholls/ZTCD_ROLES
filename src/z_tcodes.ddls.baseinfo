@@ -4,6 +4,7 @@
 "FROM":
 [
 "Z_ROLE_INFO",
+"TSTCT",
 "UST12"
 ],
 "ASSOCIATED":
@@ -11,6 +12,8 @@
 "BASE":
 [],
 "ANNO_REF":
+[],
+"SCALAR_FUNCTION":
 [],
 "VERSION":0,
 "ANNOREF_EVALUATION_ERROR":""
