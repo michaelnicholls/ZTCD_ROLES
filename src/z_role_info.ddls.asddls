@@ -12,15 +12,16 @@ define view entity Z_ROLE_INFO as select from agr_define
 left outer join z_imparting_roles as imp on imp.parent = agr_define.agr_name
 left outer join Z_composite_ROLES as comp on comp.child_agr = agr_define.agr_name
 //association to agr_1251 as _agr_1251 on $projection.agr_name = _agr_1251.agr_name
-inner join  z_all_auths  on agr_define.agr_name = z_all_auths.agr_name
-
+//inner join  z_all_auths  on agr_define.agr_name = z_all_auths.agr_name
+inner join Z_TCD_AUTHS on agr_define.agr_name = Z_TCD_AUTHS.agr_name
 association to agr_texts as _agr_texts on $projection.agr_name = _agr_texts.agr_name
     and _agr_texts.spras = $session.system_language
     and _agr_texts.line = '00000'
 
 {
   //  agr_define.agr_name as x,
-    z_all_auths.agr_name, 
+   // z_all_auths.agr_name, 
+    Z_TCD_AUTHS.agr_name,
     agr_define.parent_agr,
     cast (case agr_define.parent_agr
     when '' then ''
@@ -32,10 +33,11 @@ association to agr_texts as _agr_texts on $projection.agr_name = _agr_texts.agr_
     end as z_sap_flag) as SAP_supplied,
     cast (case when imp.parent is null then '' else 'X' end as z_imparting_flag) as Imparting,
     cast (case when comp.child_agr is null then '' else 'X' end as z_in_composite_flag) as in_composite,
-    z_all_auths.auth,
+    'a' as auth,
+  //  z_all_auths.auth,
     _agr_texts.text as description,
-    cast(z_all_auths.composite as z_is_composite_flag) as composite,
-    concat(z_all_auths.agr_name, z_all_auths.roletype) as fullname,
+    cast(Z_TCD_AUTHS.composite as z_is_composite_flag) as composite,
+    concat(Z_TCD_AUTHS.agr_name, Z_TCD_AUTHS.roletype) as fullname,
     concat(
     concat('/sap/bc/gui/sap/its/webgui?~transaction=*PFCG%20AGR_NAME_NEU=',agr_define.agr_name),
     ';DYNP_OKCODE=ANZE') as webgui

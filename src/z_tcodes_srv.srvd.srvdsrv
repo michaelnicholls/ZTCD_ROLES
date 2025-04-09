@@ -1,0 +1,4 @@
+@EndUserText.label: 'tcodes srv'
+define service Z_tcodes_srv {
+  expose Z_TCODES;
+}

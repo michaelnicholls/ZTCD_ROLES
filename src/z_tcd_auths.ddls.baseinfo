@@ -3,9 +3,8 @@
 {
 "FROM":
 [
-"Z_ROLE_INFO",
-"Z_TCD_AUTHS",
-"TSTCT"
+"Z_ALL_ROLES",
+"AGR_1251"
 ],
 "ASSOCIATED":
 [],
