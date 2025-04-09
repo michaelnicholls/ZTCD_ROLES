@@ -75,7 +75,7 @@ key Z_TCD_AUTHS.tcode,
       @UI.lineItem: [ { position: 50, label: 'Right click to launch PFCG', type: #WITH_URL, url: 'webgui' } ]
       'PFCG'                    as pfcg,
       @UI.lineItem: [ { position: 15 } ]
-      replace(tstct.ttext,'&',' ') as tcode_description
+      cast(replace(tstct.ttext,'&',' ') as ttext_stct) as tcode_description
 }
 
 //where ust12.objct = 'S_TCODE' and Z_ROLE_INFO.agr_name <> ''
